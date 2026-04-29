@@ -340,30 +340,47 @@ window.CONTACT_TIERS = [
     { id: "tier6", label: "10,000+", multiplier: 2.0 },
 ];
 window.ALL_TOOLS = [
-    // Donations — payment links, donation pages, peer-to-peer, campaign checkout
-    { id: "zeffy", label: "Zeffy", group: "Donations", category: "Donations & CRM", baseCost: 0, scales: false, sapReplaces: true },
-    { id: "givebutter", label: "Givebutter", group: "Donations", category: "Donations & CRM", baseCost: 0, scales: false, sapReplaces: true },
-    { id: "givebutter_plus", label: "Givebutter Plus", group: "Donations", category: "Donations & CRM", baseCost: 199, scales: false, sapReplaces: true },
-    { id: "donorbox", label: "Donorbox", group: "Donations", category: "Donations & CRM", baseCost: 139, scales: false, sapReplaces: true },
-    { id: "paypal_stripe", label: "PayPal / Stripe", group: "Donations", category: "Donations & CRM", baseCost: 0, scales: false, sapReplaces: true },
-    { id: "nfg", label: "Network for Good", group: "Donations", category: "Donations & CRM", baseCost: 199, scales: true, sapReplaces: true },
-    { id: "qgiv", label: "Qgiv", group: "Donations", category: "Donations & CRM", baseCost: 199, scales: true, sapReplaces: true },
-    { id: "mightycause", label: "MightyCause", group: "Donations", category: "Donations & CRM", baseCost: 59, scales: false, sapReplaces: true },
-    { id: "classy", label: "Classy", group: "Donations", category: "Donations & CRM", baseCost: 299, scales: true, sapReplaces: true },
-    { id: "fundraiseup", label: "Fundraise Up", group: "Donations", category: "Donations & CRM", baseCost: 0, scales: true, sapReplaces: true },
-    { id: "funraise", label: "Funraise", group: "Donations", category: "Donations & CRM", baseCost: 299, scales: true, sapReplaces: true },
-    { id: "other_donations", label: "Other donation platform", group: "Donations", category: "Donations & CRM", baseCost: 100, scales: false, sapReplaces: true },
+    // Integrated Giving + CRM — one platform handles online giving and donor records
+    { id: "zeffy", label: "Zeffy", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "givebutter", label: "Givebutter", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "givebutter_plus", label: "Givebutter Plus", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 199, scales: false, sapReplaces: true },
+    { id: "donorbox", label: "Donorbox", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 139, scales: false, sapReplaces: true },
+    { id: "donorperfect", label: "DonorPerfect", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 99, scales: true, sapReplaces: true },
+    { id: "nfg", label: "Network for Good", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 199, scales: true, sapReplaces: true },
+    { id: "qgiv", label: "Qgiv", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 199, scales: true, sapReplaces: true },
+    { id: "classy", label: "Classy", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 299, scales: true, sapReplaces: true },
+    { id: "funraise", label: "Funraise", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 299, scales: true, sapReplaces: true },
+    { id: "other_integrated", label: "Other integrated giving + CRM platform", group: "Integrated Giving + CRM", category: "Integrated Giving + CRM", baseCost: 150, scales: false, sapReplaces: true },
 
-    // CRM — donor records, segmentation, notes, reporting
-    { id: "donorperfect", label: "DonorPerfect", group: "CRM", category: "CRM", baseCost: 99, scales: true, sapReplaces: true },
-    { id: "bloomerang", label: "Bloomerang", group: "CRM", category: "CRM", baseCost: 99, scales: true, sapReplaces: true },
-    { id: "salesforce", label: "Salesforce Nonprofit", group: "CRM", category: "CRM", baseCost: 0, scales: true, sapReplaces: true },
-    { id: "lgl", label: "Little Green Light", group: "CRM", category: "CRM", baseCost: 45, scales: true, sapReplaces: true },
-    { id: "neon", label: "Neon CRM", group: "CRM", category: "CRM", baseCost: 99, scales: true, sapReplaces: true },
-    { id: "blackbaud", label: "Blackbaud / RE", group: "CRM", category: "CRM", baseCost: 400, scales: true, sapReplaces: true },
-    { id: "kindful", label: "Kindful", group: "CRM", category: "CRM", baseCost: 100, scales: true, sapReplaces: true },
-    { id: "keela", label: "Keela", group: "CRM", category: "CRM", baseCost: 134, scales: true, sapReplaces: true },
-    { id: "other_crm", label: "Other CRM", group: "CRM", category: "CRM", baseCost: 100, scales: false, sapReplaces: true },
+    // Donation Processor / Checkout — payment collection, donation pages, campaign checkout
+    { id: "paypal_stripe", label: "PayPal / Stripe", group: "Donation Processor / Checkout", category: "Donation Processor", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "fundraiseup", label: "Fundraise Up", group: "Donation Processor / Checkout", category: "Donation Processor", baseCost: 0, scales: true, sapReplaces: true },
+    { id: "givelively", label: "GiveLively", group: "Donation Processor / Checkout", category: "Donation Processor", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "mightycause", label: "MightyCause", group: "Donation Processor / Checkout", category: "Donation Processor", baseCost: 59, scales: false, sapReplaces: true },
+    { id: "snowball", label: "Snowball", group: "Donation Processor / Checkout", category: "Donation Processor", baseCost: 99, scales: false, sapReplaces: true },
+    { id: "anedot", label: "Anedot", group: "Donation Processor / Checkout", category: "Donation Processor", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "other_donations", label: "Other donation processor", group: "Donation Processor / Checkout", category: "Donation Processor", baseCost: 100, scales: false, sapReplaces: true },
+
+    // CRM / Donor Database — spreadsheet first, then no CRM, then CRM systems alphabetically
+    { id: "spreadsheets_crm", label: "Spreadsheets (Google / Excel)", group: "CRM / Donor Database", category: "CRM", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "no_crm", label: "No CRM / donor database", group: "CRM / Donor Database", category: "CRM", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "airtable_crm", label: "Airtable", group: "CRM / Donor Database", category: "CRM", baseCost: 20, scales: true, sapReplaces: true },
+    { id: "blackbaud", label: "Blackbaud / Raiser’s Edge", group: "CRM / Donor Database", category: "CRM", baseCost: 400, scales: true, sapReplaces: true },
+    { id: "bloomerang", label: "Bloomerang", group: "CRM / Donor Database", category: "CRM", baseCost: 99, scales: true, sapReplaces: true },
+    { id: "bonterra_crm", label: "Bonterra CRM", group: "CRM / Donor Database", category: "CRM", baseCost: 199, scales: true, sapReplaces: true },
+    { id: "charityengine", label: "CharityEngine", group: "CRM / Donor Database", category: "CRM", baseCost: 300, scales: true, sapReplaces: true },
+    { id: "donordock", label: "DonorDock", group: "CRM / Donor Database", category: "CRM", baseCost: 50, scales: true, sapReplaces: true },
+    { id: "everyaction", label: "EveryAction", group: "CRM / Donor Database", category: "CRM", baseCost: 150, scales: true, sapReplaces: true },
+    { id: "giveffect", label: "Giveffect", group: "CRM / Donor Database", category: "CRM", baseCost: 149, scales: true, sapReplaces: true },
+    { id: "keela", label: "Keela", group: "CRM / Donor Database", category: "CRM", baseCost: 134, scales: true, sapReplaces: true },
+    { id: "kindful", label: "Kindful", group: "CRM / Donor Database", category: "CRM", baseCost: 100, scales: true, sapReplaces: true },
+    { id: "lgl", label: "Little Green Light", group: "CRM / Donor Database", category: "CRM", baseCost: 45, scales: true, sapReplaces: true },
+    { id: "nationbuilder", label: "NationBuilder", group: "CRM / Donor Database", category: "CRM", baseCost: 34, scales: true, sapReplaces: true },
+    { id: "neon", label: "Neon CRM", group: "CRM / Donor Database", category: "CRM", baseCost: 99, scales: true, sapReplaces: true },
+    { id: "salesforce", label: "Salesforce Nonprofit", group: "CRM / Donor Database", category: "CRM", baseCost: 0, scales: true, sapReplaces: true },
+    { id: "salsa_crm", label: "Salsa CRM", group: "CRM / Donor Database", category: "CRM", baseCost: 179, scales: true, sapReplaces: true },
+    { id: "virtuous_crm", label: "Virtuous CRM", group: "CRM / Donor Database", category: "CRM", baseCost: 500, scales: true, sapReplaces: true },
+    { id: "other_crm", label: "Other CRM", group: "CRM / Donor Database", category: "CRM", baseCost: 100, scales: false, sapReplaces: true },
 
     // Website — replaceable when SAP builds the hosted page/site layer
     { id: "squarespace", label: "Squarespace", group: "Website", category: "Website", baseCost: 33, scales: false, sapReplaces: true },
@@ -399,13 +416,17 @@ window.ALL_TOOLS = [
     { id: "givepulse", label: "GivePulse", group: "Volunteers & Applications", category: "Volunteer / Applications", baseCost: 100, scales: false, sapReplaces: true },
     { id: "other_volunteers", label: "Other volunteer / application tool", group: "Volunteers & Applications", category: "Volunteer / Applications", baseCost: 75, scales: false, sapReplaces: true },
 
-    // Grants & reporting — grant writing support + tracking/reporting workflow
-    { id: "grant_writer_consultant", label: "Grant writer / consultant", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 1500, scales: false, sapReplaces: true },
-    { id: "grant_writing_agency", label: "Grant writing agency", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 2500, scales: false, sapReplaces: true },
-    { id: "grant_tracking_spreadsheet", label: "Grant tracking spreadsheet", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 0, scales: false, sapReplaces: true },
-    { id: "granthub", label: "GrantHub", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 95, scales: false, sapReplaces: true },
-    { id: "airtable_grants", label: "Airtable grant tracker", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 20, scales: true, sapReplaces: true },
-    { id: "other_grants", label: "Other grant writing / reporting tool", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 100, scales: false, sapReplaces: true },
+    // Grant writing & research — tools/services SAP can replace or materially reduce through grant writing support
+    { id: "grant_writer_consultant", label: "Grant writer / consultant", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 1500, scales: false, sapReplaces: true },
+    { id: "grant_writing_agency", label: "Grant writing agency", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 2500, scales: false, sapReplaces: true },
+    { id: "instrumentl", label: "Instrumentl", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 299, scales: false, sapReplaces: true },
+    { id: "grantwatch", label: "GrantWatch", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 29, scales: false, sapReplaces: true },
+    { id: "grantstation", label: "GrantStation", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 60, scales: false, sapReplaces: true },
+    { id: "candid_foundation_directory", label: "Candid / Foundation Directory", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 65, scales: false, sapReplaces: true },
+    { id: "opengrants", label: "OpenGrants", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 49, scales: false, sapReplaces: true },
+    { id: "granthub", label: "GrantHub", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 95, scales: false, sapReplaces: true },
+    { id: "grant_gopher", label: "Grant Gopher", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 15, scales: false, sapReplaces: true },
+    { id: "other_grants", label: "Other grant research / writing tool", group: "Grant Writing & Research", category: "Grant Writing & Research", baseCost: 100, scales: false, sapReplaces: true },
 ];window.HATS = [
     { id: "ed", label: "Running the organization" },
     { id: "fundraiser", label: "Raising money" },
@@ -2557,10 +2578,9 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
             // Stage 1 (Manual Trap): heavy reliance on spreadsheets/PayPal, OR low score.
             // Stage 2 (Integrated Foundation): real CRM in place, mid score.
             // Stage 3 (Growth Engine): integrated stack + good digital hygiene + high score.
-            const manualTrapToolIds = ["spreadsheets_crm", "paypal_stripe", "spreadsheets"];
+            const manualTrapToolIds = ["spreadsheets_crm", "no_crm", "paypal_stripe", "spreadsheets"];
             const hasManualTrap = manualTrapToolIds.some(id => tools[id]);
-            const realCrmIds = ["bloomerang", "salesforce", "neon", "donorperfect", "kindful", "lgl",
-                "blackbaud", "virtuous", "keela", "classy", "givebutter_plus", "qgiv", "funraise", "nfg"];
+            const realCrmIds = ["zeffy", "givebutter", "givebutter_plus", "donorbox", "donorperfect", "nfg", "qgiv", "classy", "funraise", "other_integrated", "airtable_crm", "blackbaud", "bloomerang", "bonterra_crm", "charityengine", "donordock", "everyaction", "giveffect", "keela", "kindful", "lgl", "nationbuilder", "neon", "salesforce", "salsa_crm", "virtuous_crm", "other_crm"];
             const hasRealCrm = realCrmIds.some(id => tools[id]);
             const goodDigital = Object.values(digitalHealth).filter(s => s === "good").length;
             let maturityStage;
