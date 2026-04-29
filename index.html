@@ -340,6 +340,7 @@ window.CONTACT_TIERS = [
     { id: "tier6", label: "10,000+", multiplier: 2.0 },
 ];
 window.ALL_TOOLS = [
+    // Donations — payment links, donation pages, peer-to-peer, campaign checkout
     { id: "zeffy", label: "Zeffy", group: "Donations", category: "Donations & CRM", baseCost: 0, scales: false, sapReplaces: true },
     { id: "givebutter", label: "Givebutter", group: "Donations", category: "Donations & CRM", baseCost: 0, scales: false, sapReplaces: true },
     { id: "givebutter_plus", label: "Givebutter Plus", group: "Donations", category: "Donations & CRM", baseCost: 199, scales: false, sapReplaces: true },
@@ -349,6 +350,11 @@ window.ALL_TOOLS = [
     { id: "qgiv", label: "Qgiv", group: "Donations", category: "Donations & CRM", baseCost: 199, scales: true, sapReplaces: true },
     { id: "mightycause", label: "MightyCause", group: "Donations", category: "Donations & CRM", baseCost: 59, scales: false, sapReplaces: true },
     { id: "classy", label: "Classy", group: "Donations", category: "Donations & CRM", baseCost: 299, scales: true, sapReplaces: true },
+    { id: "fundraiseup", label: "Fundraise Up", group: "Donations", category: "Donations & CRM", baseCost: 0, scales: true, sapReplaces: true },
+    { id: "funraise", label: "Funraise", group: "Donations", category: "Donations & CRM", baseCost: 299, scales: true, sapReplaces: true },
+    { id: "other_donations", label: "Other donation platform", group: "Donations", category: "Donations & CRM", baseCost: 100, scales: false, sapReplaces: true },
+
+    // CRM — donor records, segmentation, notes, reporting
     { id: "donorperfect", label: "DonorPerfect", group: "CRM", category: "CRM", baseCost: 99, scales: true, sapReplaces: true },
     { id: "bloomerang", label: "Bloomerang", group: "CRM", category: "CRM", baseCost: 99, scales: true, sapReplaces: true },
     { id: "salesforce", label: "Salesforce Nonprofit", group: "CRM", category: "CRM", baseCost: 0, scales: true, sapReplaces: true },
@@ -356,23 +362,51 @@ window.ALL_TOOLS = [
     { id: "neon", label: "Neon CRM", group: "CRM", category: "CRM", baseCost: 99, scales: true, sapReplaces: true },
     { id: "blackbaud", label: "Blackbaud / RE", group: "CRM", category: "CRM", baseCost: 400, scales: true, sapReplaces: true },
     { id: "kindful", label: "Kindful", group: "CRM", category: "CRM", baseCost: 100, scales: true, sapReplaces: true },
+    { id: "keela", label: "Keela", group: "CRM", category: "CRM", baseCost: 134, scales: true, sapReplaces: true },
+    { id: "other_crm", label: "Other CRM", group: "CRM", category: "CRM", baseCost: 100, scales: false, sapReplaces: true },
+
+    // Website — replaceable when SAP builds the hosted page/site layer
     { id: "squarespace", label: "Squarespace", group: "Website", category: "Website", baseCost: 33, scales: false, sapReplaces: true },
     { id: "wix", label: "Wix", group: "Website", category: "Website", baseCost: 29, scales: false, sapReplaces: true },
     { id: "wordpress", label: "WordPress", group: "Website", category: "Website", baseCost: 45, scales: false, sapReplaces: true },
     { id: "webflow", label: "Webflow", group: "Website", category: "Website", baseCost: 39, scales: false, sapReplaces: true },
+    { id: "other_website", label: "Other website platform", group: "Website", category: "Website", baseCost: 50, scales: false, sapReplaces: true },
+
+    // Email — replaceable as SAP email/automation comes online
     { id: "mailchimp", label: "Mailchimp", group: "Email", category: "Email", baseCost: 45, scales: true, sapReplaces: true },
     { id: "constant_contact", label: "Constant Contact", group: "Email", category: "Email", baseCost: 55, scales: true, sapReplaces: true },
     { id: "mailerlite", label: "MailerLite", group: "Email", category: "Email", baseCost: 25, scales: true, sapReplaces: true },
+    { id: "other_email", label: "Other email platform", group: "Email", category: "Email", baseCost: 50, scales: false, sapReplaces: true },
+
+    // Events — basic event registration / attendee capture
     { id: "eventbrite", label: "Eventbrite", group: "Events", category: "Events", baseCost: 0, scales: false, sapReplaces: true },
     { id: "eventbrite_pro", label: "Eventbrite Pro", group: "Events", category: "Events", baseCost: 99, scales: false, sapReplaces: true },
-    { id: "hootsuite", label: "Hootsuite", group: "Other", category: "Other", baseCost: 99, scales: false, sapReplaces: false },
-    { id: "buffer", label: "Buffer", group: "Other", category: "Other", baseCost: 36, scales: false, sapReplaces: false },
-    { id: "instrumentl", label: "Instrumentl", group: "Other", category: "Other", baseCost: 179, scales: false, sapReplaces: false },
-    { id: "quickbooks", label: "QuickBooks", group: "Other", category: "Other", baseCost: 55, scales: false, sapReplaces: false },
-    { id: "typeform", label: "Typeform", group: "Forms", category: "Forms", baseCost: 59, scales: false, sapReplaces: true },
-    { id: "jotform", label: "JotForm", group: "Forms", category: "Forms", baseCost: 49, scales: false, sapReplaces: true },
-];
-window.HATS = [
+    { id: "givebutter_events", label: "Givebutter Events", group: "Events", category: "Events", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "other_events", label: "Other event registration tool", group: "Events", category: "Events", baseCost: 75, scales: false, sapReplaces: true },
+
+    // Forms & intake — public forms that should write into the CRM
+    { id: "google_forms", label: "Google Forms", group: "Forms & Intake", category: "Forms", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "microsoft_forms", label: "Microsoft Forms", group: "Forms & Intake", category: "Forms", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "typeform", label: "Typeform", group: "Forms & Intake", category: "Forms", baseCost: 59, scales: false, sapReplaces: true },
+    { id: "jotform", label: "JotForm", group: "Forms & Intake", category: "Forms", baseCost: 49, scales: false, sapReplaces: true },
+    { id: "airtable_forms", label: "Airtable Forms", group: "Forms & Intake", category: "Forms", baseCost: 20, scales: true, sapReplaces: true },
+    { id: "other_forms", label: "Other forms / intake tool", group: "Forms & Intake", category: "Forms", baseCost: 50, scales: false, sapReplaces: true },
+
+    // Volunteer / applications — replaceable when used for intake, scheduling, or basic tracking
+    { id: "signupgenius", label: "SignUpGenius", group: "Volunteers & Applications", category: "Volunteer / Applications", baseCost: 12, scales: false, sapReplaces: true },
+    { id: "volunteerhub", label: "VolunteerHub", group: "Volunteers & Applications", category: "Volunteer / Applications", baseCost: 150, scales: false, sapReplaces: true },
+    { id: "betterimpact", label: "Better Impact", group: "Volunteers & Applications", category: "Volunteer / Applications", baseCost: 65, scales: false, sapReplaces: true },
+    { id: "givepulse", label: "GivePulse", group: "Volunteers & Applications", category: "Volunteer / Applications", baseCost: 100, scales: false, sapReplaces: true },
+    { id: "other_volunteers", label: "Other volunteer / application tool", group: "Volunteers & Applications", category: "Volunteer / Applications", baseCost: 75, scales: false, sapReplaces: true },
+
+    // Grants & reporting — grant writing support + tracking/reporting workflow
+    { id: "grant_writer_consultant", label: "Grant writer / consultant", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 1500, scales: false, sapReplaces: true },
+    { id: "grant_writing_agency", label: "Grant writing agency", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 2500, scales: false, sapReplaces: true },
+    { id: "grant_tracking_spreadsheet", label: "Grant tracking spreadsheet", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 0, scales: false, sapReplaces: true },
+    { id: "granthub", label: "GrantHub", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 95, scales: false, sapReplaces: true },
+    { id: "airtable_grants", label: "Airtable grant tracker", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 20, scales: true, sapReplaces: true },
+    { id: "other_grants", label: "Other grant writing / reporting tool", group: "Grant Writing & Reporting", category: "Grant Writing & Reporting", baseCost: 100, scales: false, sapReplaces: true },
+];window.HATS = [
     { id: "ed", label: "Running the organization" },
     { id: "fundraiser", label: "Raising money" },
     { id: "donorRelations", label: "Thanking and stewarding donors" },
@@ -1678,7 +1712,7 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
             }
             return sum;
         }, 0);
-        const current = (_a = sectionHours.org) !== null && _a !== void 0 ? _a : calc;
+        const current = sectionHours.org || calc;
         return (React.createElement(StepShell, { eyebrow: "About your org", title: "The stuff every nonprofit deals with.", subtitle: "Receipts, thank-yous, volunteers, events. Universal \u2014 answer for whoever owns each one." },
             questions.map((q) => {
                 var _a;
