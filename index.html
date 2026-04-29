@@ -301,6 +301,69 @@ button { font-family: inherit; }
   line-height: var(--p-lh);
 }
 
+
+
+/* Mobile and step navigation polish */
+.sap-step-main,
+.sap-results-main {
+  scroll-margin-top: 0;
+}
+.sap-nav-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 640px) {
+  html { scroll-padding-top: 0; }
+  body { overflow-x: hidden; }
+  .sap-app-header {
+    padding: 14px 16px 10px !important;
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(255, 254, 252, 0.96);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--slate-200);
+  }
+  .sap-step-main {
+    max-width: 100% !important;
+    padding: 0 12px 112px !important;
+  }
+  .sap-results-main {
+    max-width: 100% !important;
+    padding: 0 12px 72px !important;
+  }
+  .sap-card {
+    border-radius: 18px !important;
+  }
+  .sap-nav-actions {
+    position: sticky;
+    bottom: 0;
+    z-index: 35;
+    margin: 24px -24px -32px;
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -10px 24px rgba(15, 23, 42, 0.08);
+  }
+  .sap-nav-actions .sap-btn {
+    min-height: 48px;
+    flex: 1 1 0;
+    width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  .sap-nav-actions .sap-btn:first-child:nth-last-child(1) {
+    max-width: none;
+  }
+}
+
 </style>
 </head>
 <body class="sap-root">
@@ -2311,6 +2374,16 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
         const [staffRate, setStaffRate] = useAppState(45);
         const [fundraisingMultiplier, setFundraisingMultiplier] = useAppState(3.5);
         const [isSubmitting, setIsSubmitting] = useAppState(false);
+        const scrollToPageTop = () => {
+            requestAnimationFrame(() => {
+                document.documentElement.scrollTop = 0;
+                document.body.scrollTop = 0;
+                window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+            });
+        };
+        useEffect(() => {
+            scrollToPageTop();
+        }, [step, showResults]);
         const selectedHats = window.HATS.filter((h) => hats[h.id]);
         const toggleHat = (id) => setHats((p) => ({ ...p, [id]: !p[id] }));
         const toggleTool = (toolId) => {
@@ -2481,7 +2554,7 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
                 finally {
                     setIsSubmitting(false);
                     setShowResults(true);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    scrollToPageTop();
                 }
                 return;
             }
@@ -2492,11 +2565,11 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
                 }
             }
             setStep(step + 1);
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            scrollToPageTop();
         };
         const prevStep = () => {
             setStep(Math.max(0, step - 1));
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            scrollToPageTop();
         };
         const restart = () => {
             setShowResults(false);
@@ -2511,7 +2584,7 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
             setContact({ firstName: "", lastName: "", email: "", organization: "", phone: "" });
             setStaffRate(45);
             setFundraisingMultiplier(3.5);
-            window.scrollTo({ top: 0, behavior: "smooth" });
+            scrollToPageTop();
         };
         const calculateResults = () => {
             let totalHours = 0;
@@ -2628,7 +2701,7 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
             return null;
         };
         // Page header
-        const Header = () => (React.createElement("header", { style: {
+        const Header = () => (React.createElement("header", { className: "sap-app-header", style: {
                 display: "flex", alignItems: "center", justifyContent: "space-between",
                 padding: "20px 24px",
                 maxWidth: 640, margin: "0 auto",
@@ -2649,7 +2722,7 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
                     background: tweaks.warmAccentBg ? "var(--secondary-50)" : "var(--background)",
                 } },
                 React.createElement(Header, null),
-                React.createElement("main", { style: { maxWidth: 640, margin: "0 auto", padding: "0 16px 64px" } },
+                React.createElement("main", { className: "sap-results-main", style: { maxWidth: 640, margin: "0 auto", padding: "0 16px 64px" } },
                     React.createElement(ResultsPage, { results: results, contact: contact, selectedHats: selectedHats, selectedTools: selectedTools, toolCosts: toolCosts, onRestart: restart, staffRate: staffRate, setStaffRate: setStaffRate, fundraisingMultiplier: fundraisingMultiplier, setFundraisingMultiplier: setFundraisingMultiplier })),
                 React.createElement(TweaksUI, { tweaks: tweaks, setTweak: setTweak })));
         }
@@ -2658,18 +2731,13 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
                 background: tweaks.warmAccentBg ? "var(--secondary-50)" : "var(--background)",
             } },
             React.createElement(Header, null),
-            React.createElement("main", { style: { maxWidth: 560, margin: "0 auto", padding: "0 16px 64px" }, "data-screen-label": `Step ${String(step + 1).padStart(2, "0")}` },
+            React.createElement("main", { className: "sap-step-main", style: { maxWidth: 560, margin: "0 auto", padding: "0 16px 64px" }, "data-screen-label": `Step ${String(step + 1).padStart(2, "0")}` },
                 React.createElement("div", { style: { marginBottom: 16 } },
                     React.createElement(SapProgressBar, { current: step, total: totalSteps })),
                 React.createElement(SapCard, { style: { padding: tweaks.compactMode ? "20px 20px 24px" : "28px 24px 32px" } },
                     renderStep(),
-                    React.createElement("div", { style: {
-                            display: "flex",
+                    React.createElement("div", { className: "sap-nav-actions", style: {
                             justifyContent: step === 0 ? "flex-end" : "space-between",
-                            gap: 12,
-                            marginTop: 28,
-                            paddingTop: 20,
-                            borderTop: "1px solid var(--border)",
                         } },
                         step > 0 && (React.createElement(SapButton, { variant: "outline", onClick: prevStep, iconLeft: React.createElement("i", { className: "ph ph-arrow-left", style: { fontSize: 14 } }) }, "Back")),
                         React.createElement(SapButton, { onClick: nextStep, disabled: !canProceed() || isSubmitting, iconRight: !isSubmitting ? React.createElement("i", { className: "ph ph-arrow-right", style: { fontSize: 14 } }) : null }, isSubmitting ? "Submitting…" : step === contactStep ? "See my results" : "Continue")))),
