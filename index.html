@@ -1664,7 +1664,7 @@ const WEB3FORMS_ENABLED = !!WEB3FORMS_ACCESS_KEY && !WEB3FORMS_ACCESS_KEY.starts
             (acc[t.group || t.category] = acc[t.group || t.category] || []).push(t);
             return acc;
         }, {});
-        return (React.createElement(StepShell, { eyebrow: "Step 3", title: "What are you paying for right now?", subtitle: "Select every tool you use. Costs are estimated; you can edit them below." },
+        return (React.createElement(StepShell, { eyebrow: "Step 3", title: "What are you using for right now?", subtitle: "Select every tool you use. Costs are estimated; you can edit them below." },
             React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: 16 } }, Object.entries(grouped).map(([cat, list]) => (React.createElement("div", { key: cat },
                 React.createElement("div", { style: {
                         fontFamily: "var(--font-sans)",
